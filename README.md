@@ -23,6 +23,117 @@ yarn add tc-kimlikno
 pnpm add tc-kimlikno
 ```
 
+## Örnek Proje Oluşturma
+
+### TypeScript ile Kullanım
+
+1. Yeni bir TypeScript projesi oluşturun:
+```bash
+mkdir tc-kimlik-ornek
+cd tc-kimlik-ornek
+npm init -y
+npm install typescript ts-node @types/node --save-dev
+npm install tc-kimlikno
+```
+
+2. `tsconfig.json` dosyası oluşturun:
+```json
+{
+  "compilerOptions": {
+    "target": "es2018",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist"
+  }
+}
+```
+
+3. `src/index.ts` dosyası oluşturun:
+```typescript
+import { TCKimlikNoDogrulayici } from 'tc-kimlikno';
+
+// Algoritma kontrolü
+const tcNo = '10000000146';
+const algoritmaKontrol = TCKimlikNoDogrulayici.algoritmaDogrula(tcNo);
+console.log('Algoritma Kontrolü:', algoritmaKontrol);
+
+// NVI servisi ile doğrulama
+async function kimlikDogrula() {
+  try {
+    const sonuc = await TCKimlikNoDogrulayici.nviDogrula({
+      TCKimlikNo: tcNo,
+      Ad: 'ADI',
+      Soyad: 'SOYADI',
+      DogumYili: 1990
+    });
+    console.log('NVI Doğrulama:', sonuc);
+  } catch (error) {
+    console.error('Hata:', error);
+  }
+}
+
+kimlikDogrula();
+```
+
+4. `package.json` dosyasına script ekleyin:
+```json
+{
+  "scripts": {
+    "start": "ts-node src/index.ts"
+  }
+}
+```
+
+5. Uygulamayı çalıştırın:
+```bash
+npm start
+```
+
+### JavaScript ile Kullanım
+
+1. Yeni bir JavaScript projesi oluşturun:
+```bash
+mkdir tc-kimlik-ornek
+cd tc-kimlik-ornek
+npm init -y
+npm install tc-kimlikno
+```
+
+2. `index.js` dosyası oluşturun:
+```javascript
+const { TCKimlikNoDogrulayici } = require('tc-kimlikno');
+
+// Algoritma kontrolü
+const tcNo = '10000000146';
+const algoritmaKontrol = TCKimlikNoDogrulayici.algoritmaDogrula(tcNo);
+console.log('Algoritma Kontrolü:', algoritmaKontrol);
+
+// NVI servisi ile doğrulama
+async function kimlikDogrula() {
+  try {
+    const sonuc = await TCKimlikNoDogrulayici.nviDogrula({
+      TCKimlikNo: tcNo,
+      Ad: 'ADI',
+      Soyad: 'SOYADI',
+      DogumYili: 1990
+    });
+    console.log('NVI Doğrulama:', sonuc);
+  } catch (error) {
+    console.error('Hata:', error);
+  }
+}
+
+kimlikDogrula();
+```
+
+3. Uygulamayı çalıştırın:
+```bash
+node index.js
+```
+
 ## Kullanım
 
 ### Algoritma ile Doğrulama
@@ -85,6 +196,11 @@ TC Kimlik numarasını ve kişi bilgilerini NVI servisi üzerinden doğrular.
 
 **Dönüş:**
 - `Promise<boolean>`: Bilgiler doğru ise `true`, değilse `false`
+
+## Gereksinimler
+
+- Node.js >= 14.0.0
+- npm, yarn veya pnpm
 
 ## Lisans
 

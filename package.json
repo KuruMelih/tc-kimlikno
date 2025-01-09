@@ -4,18 +4,35 @@
   "description": "TC Kimlik Numarası doğrulama paketi",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "build": "tsc",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "start": "node dist/index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kurumelih/tc-kimlikno.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kurumelih/tc-kimlikno/issues"
+  },
+  "homepage": "https://github.com/kurumelih/tc-kimlikno#readme",
   "keywords": [
     "tc",
     "kimlik",
     "tckimlik",
     "doğrulama",
-    "verification"
+    "verification",
+    "nvi",
+    "türkiye",
+    "kimlik-doğrulama"
   ],
-  "author": "",
+  "author": "Melih Kuru",
   "license": "MIT",
   "dependencies": {
     "soap": "^1.0.0"
@@ -23,5 +40,8 @@
   "devDependencies": {
     "typescript": "^5.0.0",
     "@types/node": "^20.0.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
   }
 }
