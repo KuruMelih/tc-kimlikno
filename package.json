@@ -1,0 +1,27 @@
+{
+  "name": "tc-kimlikno",
+  "version": "1.0.0",
+  "description": "TC Kimlik Numarası doğrulama paketi",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "tc",
+    "kimlik",
+    "tckimlik",
+    "doğrulama",
+    "verification"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "soap": "^1.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0"
+  }
+}
