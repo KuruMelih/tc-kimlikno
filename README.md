@@ -1,9 +1,9 @@
-# TC-KimlikNo
+# TCKN Validator
 
 TC Kimlik Numarası doğrulama paketi. Bu paket ile TC Kimlik numaralarını hem algoritma ile hem de NVI (Nüfus ve Vatandaşlık İşleri) servisi üzerinden doğrulayabilirsiniz.
 
-![npm](https://img.shields.io/npm/v/tc-kimlikno)
-![license](https://img.shields.io/npm/l/tc-kimlikno)
+![npm](https://img.shields.io/npm/v/@tckn/validator)
+![license](https://img.shields.io/npm/l/@tckn/validator)
 
 ## Özellikler
 
@@ -16,11 +16,11 @@ TC Kimlik Numarası doğrulama paketi. Bu paket ile TC Kimlik numaralarını hem
 ## Kurulum
 
 ```bash
-npm install tc-kimlikno
+npm install @tckn/validator
 # veya
-yarn add tc-kimlikno
+yarn add @tckn/validator
 # veya
-pnpm add tc-kimlikno
+pnpm add @tckn/validator
 ```
 
 ## Örnek Proje Oluşturma
@@ -29,11 +29,11 @@ pnpm add tc-kimlikno
 
 1. Yeni bir TypeScript projesi oluşturun:
 ```bash
-mkdir tc-kimlik-ornek
-cd tc-kimlik-ornek
+mkdir tckn-ornek
+cd tckn-ornek
 npm init -y
 npm install typescript ts-node @types/node --save-dev
-npm install tc-kimlikno
+npm install @tckn/validator
 ```
 
 2. `tsconfig.json` dosyası oluşturun:
@@ -53,7 +53,7 @@ npm install tc-kimlikno
 
 3. `src/index.ts` dosyası oluşturun:
 ```typescript
-import { TCKimlikNoDogrulayici } from 'tc-kimlikno';
+import { TCKimlikNoDogrulayici } from '@tckn/validator';
 
 // Algoritma kontrolü
 const tcNo = '10000000146';
@@ -96,15 +96,15 @@ npm start
 
 1. Yeni bir JavaScript projesi oluşturun:
 ```bash
-mkdir tc-kimlik-ornek
-cd tc-kimlik-ornek
+mkdir tckn-ornek
+cd tckn-ornek
 npm init -y
-npm install tc-kimlikno
+npm install @tckn/validator
 ```
 
 2. `index.js` dosyası oluşturun:
 ```javascript
-const { TCKimlikNoDogrulayici } = require('tc-kimlikno');
+const { TCKimlikNoDogrulayici } = require('@tckn/validator');
 
 // Algoritma kontrolü
 const tcNo = '10000000146';
@@ -132,43 +132,6 @@ kimlikDogrula();
 3. Uygulamayı çalıştırın:
 ```bash
 node index.js
-```
-
-## Kullanım
-
-### Algoritma ile Doğrulama
-
-TC Kimlik numarasının matematiksel algoritmasını kontrol eder:
-
-```typescript
-import { TCKimlikNoDogrulayici } from 'tc-kimlikno';
-
-const sonuc = TCKimlikNoDogrulayici.algoritmaDogrula('10000000146');
-console.log('Algoritma Doğrulama:', sonuc); // true veya false
-```
-
-### NVI Servisi ile Doğrulama
-
-TC Kimlik numarasını ve kişi bilgilerini NVI servisi üzerinden doğrular:
-
-```typescript
-import { TCKimlikNoDogrulayici } from 'tc-kimlikno';
-
-async function kimlikDogrula() {
-  try {
-    const sonuc = await TCKimlikNoDogrulayici.nviDogrula({
-      TCKimlikNo: '10000000146',
-      Ad: 'ADI',
-      Soyad: 'SOYADI',
-      DogumYili: 1990
-    });
-    console.log('NVI Doğrulama:', sonuc); // true veya false
-  } catch (error) {
-    console.error('Hata:', error.message);
-  }
-}
-
-kimlikDogrula();
 ```
 
 ## API

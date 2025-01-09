@@ -1,5 +1,5 @@
 {
-  "name": "tc-kimlikno",
+  "name": "@tckn/validator",
   "version": "1.0.0",
   "description": "TC Kimlik Numarası doğrulama paketi",
   "main": "dist/index.js",
@@ -16,12 +16,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kurumelih/tc-kimlikno.git"
+    "url": "git+https://github.com/kurumelih/tckn-validator.git"
   },
   "bugs": {
-    "url": "https://github.com/kurumelih/tc-kimlikno/issues"
+    "url": "https://github.com/kurumelih/tckn-validator/issues"
   },
-  "homepage": "https://github.com/kurumelih/tc-kimlikno#readme",
+  "homepage": "https://github.com/kurumelih/tckn-validator#readme",
   "keywords": [
     "tc",
     "kimlik",
@@ -30,7 +30,9 @@
     "verification",
     "nvi",
     "türkiye",
-    "kimlik-doğrulama"
+    "kimlik-doğrulama",
+    "tckn",
+    "validator"
   ],
   "author": "Melih Kuru",
   "license": "MIT",
@@ -43,5 +45,8 @@
   },
   "engines": {
     "node": ">=14.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
